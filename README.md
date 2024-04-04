@@ -50,15 +50,71 @@ Este esquema de base de datos MySQL es una simulacion de la bd real que proporci
 1. **clientes**: Almacena la información de los clientes, como nombre, apellido, correo electrónico, teléfono y dirección.
    - Campos: id (clave primaria), nombre, apellido, email, telefono, direccion
 
+```sql
+CREATE TABLE clientes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    apellido VARCHAR(100),
+    email VARCHAR(100),
+    telefono VARCHAR(20),
+    direccion VARCHAR(255)
+);
+```
+
 2. **vehiculos**: Almacena la información de los vehículos disponibles, como marca, modelo, año, color, precio y disponibilidad.
    - Campos: id (clave primaria), marca, modelo, año, color, precio, disponible
+
+```sql
+CREATE TABLE vehiculos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    marca VARCHAR(100),
+    modelo VARCHAR(100),
+    año INT,
+    color VARCHAR(50),
+    precio DECIMAL(10, 2),
+    disponible BOOLEAN
+);
+```
 
 3. **interacciones**: Registra las interacciones de los clientes, como consultas, solicitudes de información o quejas.
    - Campos: id (clave primaria), id_cliente (clave foránea), fecha, tipo, detalle
 
+```sql
+   CREATE TABLE interacciones (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_cliente INT,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tipo VARCHAR(50),
+    detalle TEXT,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id)
+);
+```
+
 4. **mantenimiento**: Registra el mantenimiento realizado en los vehículos, como reparaciones, cambios de aceite o inspecciones.
    - Campos: id (clave primaria), id_vehiculo (clave foránea), fecha, tipo_mantenimiento, descripcion, costo
+
+```sql
+   CREATE TABLE mantenimiento (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_vehiculo INT,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tipo_mantenimiento VARCHAR(100),
+    descripcion TEXT,
+    costo DECIMAL(10, 2),
+    FOREIGN KEY (id_vehiculo) REFERENCES vehiculos(id)
+);
+```
 
 5. **leads**: Almacena la información de los clientes potenciales o leads, que aún no han realizado una compra.
    - Campos: id (clave primaria), nombre, email, telefono, fecha_creacion, intereses
 
+```sql
+   CREATE TABLE leads (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    email VARCHAR(100),
+    telefono VARCHAR(20),
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    intereses TEXT
+);
+```
