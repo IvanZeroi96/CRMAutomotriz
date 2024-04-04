@@ -1,7 +1,17 @@
 # Proyecto CRM Automotriz
 
+## Descripcion 
 
-## Funcionalidades del CRM Automotriz con Inteligencia Artificial
+Al desarrollar un CRM automotriz con las siguiente implementaciones puede ayudar a las empresas del sector automotriz a ofrecer un mejor servicio al cliente, optimizar sus procesos comerciales y aumentar su rentabilidad, ademas de ayudar a:
+
+1. **Mejora de la experiencia del cliente** 
+2. **Eficiencia en la gestión de clientes potenciales** 
+3. **Optimización de precios y márgenes** 
+4. **Mantenimiento predictivo y servicio proactivo** 
+5. **Automatización y eficiencia operativa** 
+
+
+## Funcionalidades a implementar del CRM Automotriz con Inteligencia Artificial
 
 1. **Recomendaciones personalizadas de vehículos:**  
    Utiliza algoritmos de aprendizaje automático para analizar el historial de compras, preferencias de los clientes y comportamientos de navegación para ofrecer recomendaciones personalizadas de vehículos que se ajusten a las necesidades y preferencias de cada cliente.
@@ -23,3 +33,32 @@
 
 7. **Segmentación avanzada de clientes:**  
    Utiliza técnicas de segmentación avanzada basadas en inteligencia artificial para identificar grupos de clientes con características y comportamientos similares, permitiendo a la empresa personalizar sus estrategias de marketing y servicio para cada segmento de manera más efectiva.
+
+
+## BD a implementar
+
+Para implementar un CRM automotriz con inteligencia artificial, es importante elegir una base de datos que sea capaz de manejar grandes volúmenes de datos, soportar consultas complejas y permitir la integración con herramientas de inteligencia artificial.
+Por el cual se selecciono:
+
+MySQL: Estas bases de datos relacionales son opciones sólidas si tienes datos estructurados que necesitas almacenar y consultar de manera eficiente. Ambas son conocidas por su confiabilidad, rendimiento y amplio soporte para integraciones con otras herramientas.
+
+## Esquema de Base de Datos para CRM Automotriz
+
+Este esquema de base de datos MySQL es una simulacion de la bd real que proporciona una estructura básica para un CRM automotriz. Este es solo un ejemplo simplificado para ilustrar cómo podrías organizar la información. En un entorno real, la estructura de la base de datos y las relaciones entre las tablas serían más complejas y se adaptarían a los requisitos específicos de la aplicación.
+
+## Tablas
+1. **clientes**: Almacena la información de los clientes, como nombre, apellido, correo electrónico, teléfono y dirección.
+   - Campos: id (clave primaria), nombre, apellido, email, telefono, direccion
+
+2. **vehiculos**: Almacena la información de los vehículos disponibles, como marca, modelo, año, color, precio y disponibilidad.
+   - Campos: id (clave primaria), marca, modelo, año, color, precio, disponible
+
+3. **interacciones**: Registra las interacciones de los clientes, como consultas, solicitudes de información o quejas.
+   - Campos: id (clave primaria), id_cliente (clave foránea), fecha, tipo, detalle
+
+4. **mantenimiento**: Registra el mantenimiento realizado en los vehículos, como reparaciones, cambios de aceite o inspecciones.
+   - Campos: id (clave primaria), id_vehiculo (clave foránea), fecha, tipo_mantenimiento, descripcion, costo
+
+5. **leads**: Almacena la información de los clientes potenciales o leads, que aún no han realizado una compra.
+   - Campos: id (clave primaria), nombre, email, telefono, fecha_creacion, intereses
+
